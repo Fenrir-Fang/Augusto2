@@ -9,5 +9,5 @@ import { RouterLink } from '@angular/router';
   styleUrl: './buscar.component.css'
 })
 export class BuscarComponent {
-
+  
 }
