@@ -11,17 +11,11 @@ export const appConfig: ApplicationConfig = {
   ]
 }
 
-@Injectable({providedIn: 'root'})
-export class ConfigService {
-  constructor(private http: HttpClient) {
-    // This service can now make HTTP requests via `this.http`.
-    this.http
-  }
-};
 @NgModule({
   providers: [
     provideHttpClient(),
   ],
   // ... other application configuration
 })
+
 export class AppModule {}

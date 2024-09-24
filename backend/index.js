@@ -1,7 +1,9 @@
+const cors = require("cors");
 const express = require("express");
 const app = express()
 const ruta = require("./ruta")
 const conexion = require("./conexionDB")
+app.use (cors());
 app.use(express.json());
 //const login = require("./login")
 app.use(ruta)

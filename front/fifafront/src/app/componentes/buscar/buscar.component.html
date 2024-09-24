@@ -1,5 +1,54 @@
-<a class="button" routerLink="/login"> Log out </a>
-<h2>Buscar jugado</h2>
-<a class="button" routerLink="/main"> Inicio </a>| <a class="button" routerLink="/crear"> crear </a>
-<div>Nombre<input type="">  Version<input type=""> Nacionalidad<input type=""></div>
+<ul><a class="button" routerLink="/login"> Log out </a></ul>
+<h2>Buscar jugador</h2>
+<li><a class="button" routerLink="/main"> Inicio </a>|<a class="button" routerLink="/crear"> crear jugador </a></li>
+<h3>Escriba el nombre, pais o equipo</h3>
+<nav>
+    <div><input [(ngModel)]="nombre" type=""> <button
+        (click)="filtrar()">Buscar</button> </div> <!--Version<input type="version"> Nacionalidad<input type="nacionalidad"> </div>-->
+</nav>
+<div *ngFor="let jugador of jugadores">
+    
+    
+    
 
+
+<div class="relative overflow-x-auto">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    jugador
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Pais
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Club
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{jugador.long_name}}
+                </th>
+                <td class="px-6 py-4">
+                    {{jugador.nationality_name}}
+                </td>
+                <td class="px-6 py-4">
+                    {{jugador.club_name}}
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</div>
+<!--
+<div *ngFor="let jugador of jugadores">
+    {{jugador.long_name}}
+    {{jugador.nationality_name}}
+    {{jugador.club_name}}
+</div>
+-->
