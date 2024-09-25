@@ -2,30 +2,30 @@
 <h2>Crea a tu jugador</h2>
 <li><a class="button" routerLink="/main"> Inicio </a>| <a class="button" routerLink="/buscar"> buscar </a></li>
 <div>
-    Nombre:<input type="">
+    Nombre:<input [(ngModel)]="nombre" type="">
 </div>
 <div>
-    Nacionalidad: <input type="">
+    Nacionalidad: <input [(ngModel)]="nacionalidad" type="">
 </div>
 <div>
-    Edad: <input type="">
+    Edad: <input [(ngModel)]="edad" type="">
 </div>
 <div>
-    pace: <input type="">
+    pace: <input [(ngModel)]="pace" type="">
 </div>
 <div>
-    Shooting: <input type="">
+    Shooting: <input [(ngModel)]="shooting" type="">
 </div>
 <div>
-    passing: <input type="">
+    passing: <input [(ngModel)]="passing" type="">
 </div>
 <div>
-    dribbling: <input type="">
+    dribbling: <input [(ngModel)]="dribbling" type="">
 </div>
 <div>
-    defending: <input type="">
+    defending: <input [(ngModel)]="defending"  type="">
 </div>
 <div>
-    physic: <input type="">
+    physic: <input [(ngModel)]="physic" type="">
 </div>
-<button>Crear</button>
+<button (click)="agregar()">Crear</button>

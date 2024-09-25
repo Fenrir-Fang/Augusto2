@@ -45,6 +45,7 @@ export class BuscarComponent implements OnInit{
       }
     })
   }
+  //avanzar las paginas
   paginaSiguiente(){
     this.Npagina = this.Npagina + 1;
     this.apiservice.get('http://localhost:8000/jugadores?page='+this.Npagina).subscribe({
@@ -54,6 +55,7 @@ export class BuscarComponent implements OnInit{
     }
   })
 }
+//retroceder las paginas
 paginaAnterior(){
   this.Npagina = this.Npagina - 1;
   if (this.Npagina < 1){
