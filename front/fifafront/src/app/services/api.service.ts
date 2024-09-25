@@ -10,4 +10,7 @@ export class ApiService {
   get(url:string){
     return this.httpclient.get(url);
   }
+  post(url:string, body: any){
+    return this.httpclient.post(url, body);
+  }
 }

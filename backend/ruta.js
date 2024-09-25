@@ -6,6 +6,7 @@ const XLSX = require("xlsx");
 const stream = require("stream");
 const login = require("./login");
 const { log } = require("console");
+const {Op} = require("sequelize");
 
 app.get("/", async (req, res) => {
   try {
@@ -29,7 +30,7 @@ app.get("/jugadores", async (req, res) => {
   console.log('pagina', PAGE);
 
   const OFFSET = (PAGE - 1) * PERPAGE;
-  const LIMIT = PERPAGE * PAGE;
+  const LIMIT = PERPAGE;
   //FILTROS PARA AGREGAR EN EL BUSCADOR
   const FILTROS = ['long_name', 'nationality_name', 'fifa_version', 'club_name'];
   let filtrosPedidos = req.query.filtros || {};
@@ -40,7 +41,7 @@ app.get("/jugadores", async (req, res) => {
 
   FILTROS.forEach(filtro => {
     if (filtrosPedidos[filtro]) {
-      filtrosAplicados[filtro] = filtrosPedidos[filtro];
+      filtrosAplicados[filtro] = {[Op.like]:'%'+filtrosPedidos[filtro]+'%'};
     }
   });
   //ATRIBUTOS QUE SE LE PONEN

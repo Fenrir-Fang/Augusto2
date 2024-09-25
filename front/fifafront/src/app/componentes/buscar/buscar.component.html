@@ -3,52 +3,82 @@
 <li><a class="button" routerLink="/main"> Inicio </a>|<a class="button" routerLink="/crear"> crear jugador </a></li>
 <h3>Escriba el nombre, pais o equipo</h3>
 <nav>
-    <div><input [(ngModel)]="nombre" type=""> <button
+    <div><input [(ngModel)]="nombre" type=""> <input [(ngModel)]="nacionalidad" type = ""><button
         (click)="filtrar()">Buscar</button> </div> <!--Version<input type="version"> Nacionalidad<input type="nacionalidad"> </div>-->
 </nav>
 <div *ngFor="let jugador of jugadores">
     
-    
-    
-
 
 <div class="relative overflow-x-auto">
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <table class="w-full text-sm text-left rtl:text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="px-6 py-4">
+                    version
+                </th>
+                <th scope="col" class="px-6 py-4">
                     jugador
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="px-6 py-4">
                     Pais
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="px-6 py-4">
                     Club
+                </th>
+                <th scope="col" class="px-6 py-4">
+                    age
+                </th>
+
+                <th scope="col" class="px-6 py-4">
+                    posicion
                 </th>
             </tr>
         </thead>
         <tbody>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <td class="px-6 py-4">
+                    {{jugador.fifa_version}}
+                </td>
+                <td scope="row" class="px-6 py-4 font-center text-gray-900 whitespace-nowrap dark:text-white">
                     {{jugador.long_name}}
-                </th>
+                </td>
                 <td class="px-6 py-4">
                     {{jugador.nationality_name}}
                 </td>
                 <td class="px-6 py-4">
                     {{jugador.club_name}}
                 </td>
+                <td class="px-6 py-4">
+                    {{jugador.age}}
+                </td>
 
+                <td class="px-6 py-4">
+                    {{jugador.player_positions}}
+                </td>
             </tr>
         </tbody>
     </table>
 </div>
 
 </div>
+<div>   <button
+    (click)="descargar()">descargar CSV</button>
+</div>
+<div>
+    <div>
+
+</div>
+<button (click)="paginaSiguiente()">siguiente</button> <button (click)="paginaAnterior()">atras</button>
+    </div>
+ <div class="chart-container">
+    <canvas id="Mychart"> {{chart}} </canvas>
+ </div>
+
 <!--
 <div *ngFor="let jugador of jugadores">
     {{jugador.long_name}}
     {{jugador.nationality_name}}
     {{jugador.club_name}}
+    {{jugador.shooting}}
 </div>
 -->
