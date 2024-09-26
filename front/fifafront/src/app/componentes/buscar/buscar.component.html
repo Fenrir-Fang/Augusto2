@@ -3,8 +3,8 @@
 <li><a class="button" routerLink="/main"> Inicio </a>|<a class="button" routerLink="/crear"> crear jugador </a></li>
 <h3>Escriba el nombre, pais o equipo</h3>
 <nav>
-    <div><input [(ngModel)]="nombre" type=""> <input [(ngModel)]="nacionalidad" type = ""><button
-        (click)="filtrar()">Buscar</button> </div> <!--Version<input type="version"> Nacionalidad<input type="nacionalidad"> </div>-->
+    <div>Jugador <input [(ngModel)]="nombre" type="text"> Pais <input [(ngModel)]="nacionalidad" type = "text"> Club <input [(ngModel)]="club" type="text"> Version <input [(ngModel)]="Nversion" type="number"> <button
+        (click)="filtrar()">Buscar</button>| <a class="button" routerLink="/stads"> mirar Stads </a></div> <!--Version<input type="version"> Nacionalidad<input type="nacionalidad"> </div>-->
 </nav>
 <div *ngFor="let jugador of jugadores">
     
@@ -68,11 +68,9 @@
     <div>
 
 </div>
-<button (click)="paginaSiguiente()">siguiente</button> <button (click)="paginaAnterior()">atras</button>
+<button (click)="paginaAnterior()">atras</button> <button (click)="paginaSiguiente()">siguiente</button> 
     </div>
- <div class="chart-container">
-    <canvas id="Mychart"> {{chart}} </canvas>
- </div>
+
 
 <!--
 <div *ngFor="let jugador of jugadores">

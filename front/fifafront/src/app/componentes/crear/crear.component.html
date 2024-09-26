@@ -2,30 +2,39 @@
 <h2>Crea a tu jugador</h2>
 <li><a class="button" routerLink="/main"> Inicio </a>| <a class="button" routerLink="/buscar"> buscar </a></li>
 <div>
-    Nombre:<input [(ngModel)]="nombre" type="">
+    Nombre:<input [(ngModel)]="nombre" type="text">
 </div>
 <div>
-    Nacionalidad: <input [(ngModel)]="nacionalidad" type="">
+    Nacionalidad: <input [(ngModel)]="nacionalidad" type="text">
 </div>
 <div>
-    Edad: <input [(ngModel)]="edad" type="">
+    Edad: <input [(ngModel)]="edad" type="number">
 </div>
 <div>
-    pace: <input [(ngModel)]="pace" type="">
+    pace: <input [(ngModel)]="pace" type="number">
 </div>
 <div>
-    Shooting: <input [(ngModel)]="shooting" type="">
+    Shooting: <input [(ngModel)]="shooting" type="number">
 </div>
 <div>
-    passing: <input [(ngModel)]="passing" type="">
+    passing: <input [(ngModel)]="passing" type="number">
 </div>
 <div>
-    dribbling: <input [(ngModel)]="dribbling" type="">
+    dribbling: <input [(ngModel)]="skill_dribbling" type="number">
 </div>
 <div>
-    defending: <input [(ngModel)]="defending"  type="">
+    defending: <input [(ngModel)]="defending"  type="number">
 </div>
 <div>
-    physic: <input [(ngModel)]="physic" type="">
+    physic: <input [(ngModel)]="physic" type="number">
+</div>
+<div>
+    potential: <input [(ngModel)]= "potential" type="number">
+</div>
+<div>
+    overall: <input [(ngModel)]="overall" type="number">
+</div>
+<div>
+    player_positions: <input [(ngModel)]= "player_positions" type="text">
 </div>
 <button (click)="agregar()">Crear</button>

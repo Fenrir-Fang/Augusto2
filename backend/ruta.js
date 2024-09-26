@@ -62,13 +62,31 @@ app.get('/imprimir', async (req,res) =>{
   const PERPAGE = 10;
   console.log('pagina', PAGE);
   const OFFSET = (PAGE - 1) * PERPAGE;
-  const LIMIT = PERPAGE * PAGE;
+  const LIMIT = PERPAGE;
+
+  const FILTROS = ['long_name', 'nationality_name', 'fifa_version', 'club_name'];
+  let filtrosPedidos = req.query.filtros || {};
+
+  let filtrosAplicados = {};
+
+  console.log(filtrosPedidos);
+
+  FILTROS.forEach(filtro => {
+    if (filtrosPedidos[filtro]) {
+      filtrosAplicados[filtro] = {[Op.like]:'%'+filtrosPedidos[filtro]+'%'};
+    }
+  });
+  //ATRIBUTOS QUE SE LE PONEN
+  //console.log(filtrosAplicados);
 
   let players = await Players.findAll({
     offset: OFFSET,
     limit: LIMIT,
+    attributes: ['fifa_version', 'long_name', 'player_face_url', 'age', 'player_positions', 'club_name', 'nationality_name', 'height_cm', 'weight_kg', 'body_type', 'preferred_foot', 'work_rate'],
+    where: filtrosAplicados,
     raw:true
   });
+
 
 
   const worksheet = XLSX.utils.json_to_sheet(players);
