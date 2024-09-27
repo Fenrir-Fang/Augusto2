@@ -14,6 +14,8 @@ export const appConfig: ApplicationConfig = {
     
   ]
 }
+
+
 //poner para asegurar la conexion con el backend
 
   // ... other application configuration

@@ -32,6 +32,9 @@
                 <th scope="col" class="px-6 py-4">
                     posicion
                 </th>
+                <th scope="col" class="px-6 py-4">
+                    Acciones
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -54,6 +57,9 @@
 
                 <td class="px-6 py-4">
                     {{jugador.player_positions}}
+                </td>
+                <td class="px-6 py-4">
+                    <a [routerLink]="['/stats/' + jugador.id]">ver</a>
                 </td>
             </tr>
         </tbody>

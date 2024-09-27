@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ApiService {
 //instruccion GET
   constructor(private httpclient:HttpClient) { } 
@@ -14,4 +15,8 @@ export class ApiService {
   post(url:string, body: any){
     return this.httpclient.post(url, body);
   }
+  
 }
+
+
+

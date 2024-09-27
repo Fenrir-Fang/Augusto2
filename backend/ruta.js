@@ -50,7 +50,7 @@ app.get("/jugadores", async (req, res) => {
   let players = await Players.findAll({
     offset: OFFSET,
     limit: LIMIT,
-    attributes: ['fifa_version', 'long_name', 'player_face_url', 'age', 'player_positions', 'club_name', 'nationality_name', 'height_cm', 'weight_kg', 'body_type', 'preferred_foot', 'work_rate'],
+    attributes: ['id','fifa_version', 'long_name', 'player_face_url', 'age', 'player_positions', 'club_name', 'nationality_name', 'height_cm', 'weight_kg', 'body_type', 'preferred_foot', 'work_rate'],
     where: filtrosAplicados
   });
   res.send(players)
@@ -109,24 +109,9 @@ app.get('/imprimir', async (req,res) =>{
 
 
 //ESTADISTICAS DE JUGADORES
-app.get("/estadisticas", async (req, res) => {
-  const FILTROS = ['id'];
-  let filtrosPedidos = req.query.filtros || {};
-
-  let filtrosAplicados = {};
-
-  //console.log(filtrosPedidos);
-
-  FILTROS.forEach(filtro => {
-    if (filtrosPedidos[filtro]) {
-      filtrosAplicados[filtro] = filtrosPedidos[filtro];
-    }
-  });
-  console.log(filtrosAplicados);
-  let players = await Players.findAll({
-    attributes: ['long_name', 'shooting', 'passing', 'dribbling', 'defending', 'physic', 'pace'],
-    where: filtrosAplicados
-  })
+app.get("/estadisticas/:id", async (req, res) => {
+  const id = req.params.id;
+  let players = await Players.findByPk(id)
   res.send(players)
 
 })

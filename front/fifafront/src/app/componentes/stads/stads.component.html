@@ -3,6 +3,14 @@
 <li><a class="button" routerLink="/buscar"> Volver </a></li>
 <h3>Escriba el nombre del jugador y la version (15 a la 23)</h3>
 
+<h1>{{jugador.long_name}}</h1>
+
 <div class="chart-container">
-    <canvas id="MyChart"> {{ chart }} </canvas>
+    <canvas id="MyChart" > {{ this.chart }} </canvas>
  </div>
+
+ <pre>
+    {{this.config| json}}
+ </pre>
+
+ <canvas baseChart [data]="this.config" [options]="" [type]="'radar'"> </canvas>
