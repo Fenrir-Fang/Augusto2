@@ -59,8 +59,9 @@
                     {{jugador.player_positions}}
                 </td>
                 <td class="px-6 py-4">
-                    <a [routerLink]="['/stats/' + jugador.id]">ver</a>
+                    <a [routerLink]="['/stats/' + jugador.id]">ver</a>|<a [routerLink]="['/edit/' + jugador.id]">editar</a>
                 </td>
+                <td></td>
             </tr>
         </tbody>
     </table>
@@ -77,12 +78,3 @@
 <button (click)="paginaAnterior()">atras</button> <button (click)="paginaSiguiente()">siguiente</button> 
     </div>
 
-
-<!--
-<div *ngFor="let jugador of jugadores">
-    {{jugador.long_name}}
-    {{jugador.nationality_name}}
-    {{jugador.club_name}}
-    {{jugador.shooting}}
-</div>
--->

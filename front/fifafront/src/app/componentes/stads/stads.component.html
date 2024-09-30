@@ -3,15 +3,11 @@
 <li><a class="button" routerLink="/buscar"> Volver </a></li>
 
 <h1>{{jugador.long_name}}</h1>
-<!--
-<div class="chart-container">
-    <canvas id="MyChart" > {{ this.chart }} </canvas>
- </div>
 
- <pre>
-    {{this.config| json}}
- </pre>
--->
- <div *ngIf="chart">
-   <h2>hola</h2><canvas id="MyChart" baseChart [data]="this.config" [options]="" [type]="'radar'"> </canvas> </div>
-
+<div *ngIf="radarChartData.datasets.length > 0">
+   <canvas baseChart
+   [data]="radarChartData"
+   [labels]="radarChartLabels"
+   [options]="radarChartOptions"
+   [type]="'radar'">
+</canvas> </div>
