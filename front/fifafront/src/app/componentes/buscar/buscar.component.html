@@ -4,7 +4,7 @@
 <h3>Escriba el nombre, pais o equipo</h3>
 <nav>
     <div>Jugador <input [(ngModel)]="nombre" type="text"> Pais <input [(ngModel)]="nacionalidad" type = "text"> Club <input [(ngModel)]="club" type="text"> Version <input [(ngModel)]="Nversion" type="number"> <button
-        (click)="filtrar()">Buscar</button>| <a class="button" routerLink="/stads"> mirar Stads </a></div> <!--Version<input type="version"> Nacionalidad<input type="nacionalidad"> </div>-->
+        (click)="filtrar()">Buscar</button></div> <!--Version<input type="version"> Nacionalidad<input type="nacionalidad"> </div>-->
 </nav>
 <div *ngFor="let jugador of jugadores">
     

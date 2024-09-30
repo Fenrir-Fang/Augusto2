@@ -1,10 +1,9 @@
 <ul><a class="button" routerLink="/login"> log out</a></ul>
-<h2>Buscar jugador</h2>
+<h2>Estadisticas del jugador</h2>
 <li><a class="button" routerLink="/buscar"> Volver </a></li>
-<h3>Escriba el nombre del jugador y la version (15 a la 23)</h3>
 
 <h1>{{jugador.long_name}}</h1>
-
+<!--
 <div class="chart-container">
     <canvas id="MyChart" > {{ this.chart }} </canvas>
  </div>
@@ -12,5 +11,7 @@
  <pre>
     {{this.config| json}}
  </pre>
+-->
+ <div *ngIf="chart">
+   <h2>hola</h2><canvas id="MyChart" baseChart [data]="this.config" [options]="" [type]="'radar'"> </canvas> </div>
 
- <canvas baseChart [data]="this.config" [options]="" [type]="'radar'"> </canvas>
