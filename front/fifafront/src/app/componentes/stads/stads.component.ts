@@ -41,7 +41,7 @@ export class StadsComponent {
             this.jugador = response;
             console.log(this.jugador);
             this.radarChartData.datasets = [
-              { data: [this.jugador.pace, this.jugador.shooting, this.jugador.passing, this.jugador.dribbling, this.jugador.defending, this.jugador.physic], label: 'Stats del Jugador' }
+              { data: [this.jugador.pace, this.jugador.shooting, this.jugador.passing, this.jugador.skill_dribbling, this.jugador.defending, this.jugador.physic], label: 'Stats del Jugador' }
             ]
         }
       })

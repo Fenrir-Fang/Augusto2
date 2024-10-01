@@ -15,7 +15,10 @@ export class ApiService {
   post(url:string, body: any){
     return this.httpclient.post(url, body);
   }
-  
+  download(url:string){
+    let options:any = { responseType: "blob" as string, observe: 'response' as "body"}
+    return this.httpclient.get(url, options);
+  }
 }
 
 

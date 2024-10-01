@@ -23,6 +23,8 @@ export class CrearComponent {
   potential: number = 0;
   overall: number = 0;
   player_positions: string = "";
+  Nversion: number = 0;
+  club_name: string = "";
   jugadores: any;
   
 //cuando es una funcion POST no va nada en el constructor
@@ -46,10 +48,11 @@ export class CrearComponent {
                          defending:this.defending,
                          potential: this.potential,
                          overall: this.overall,
-                         fifa_version:0,
+                         fifa_version:this.Nversion,
                          fifa_update:0,
                          player_face_url:"",
-                         player_positions: "",
+                         club_name:this.club_name,
+                         player_positions: this.player_positions,
                          physic: this.physic}).subscribe({
                           next: (response) => {
                             this.nombre="";
@@ -64,6 +67,7 @@ export class CrearComponent {
                             this.potential = 0,
                             this.overall = 0,
                             this.player_positions ="";
+                            this.club_name = "";
                             alert("jugador creado");
                           }
                          });

@@ -5,10 +5,16 @@
     Nombre:<input [(ngModel)]="nombre" type="text">
 </div>
 <div>
+    Version de Fifa: <input [(ngModel)]="Nversion" type="number"> (de la 15 a la 23)
+</div>
+<div>
     Nacionalidad: <input [(ngModel)]="nacionalidad" type="text">
 </div>
 <div>
     Edad: <input [(ngModel)]="edad" type="number">
+</div>
+<div>
+    club <input [(ngModel)]="club_name" type="text">
 </div>
 <div>
     pace: <input [(ngModel)]="pace" type="number">
@@ -35,6 +41,6 @@
     overall: <input [(ngModel)]="overall" type="number">
 </div>
 <div>
-    player_positions: <input [(ngModel)]= "player_positions" type="text">
+    player_positions: <input [(ngModel)]= "player_positions" type="text"> (CM, RM, GK)
 </div>
 <button (click)="agregar()">Crear</button>

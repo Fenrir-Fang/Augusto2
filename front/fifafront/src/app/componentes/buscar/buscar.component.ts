@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { CommonModule } from '@angular/common';
@@ -13,9 +13,10 @@ Chart.register(...registerables);
   templateUrl: './buscar.component.html',
   styleUrl: './buscar.component.css'
 })
+
 export class BuscarComponent{
   nombre: string = "";
-  Nversion: number = 1;
+  Nversion: string = "";
   nacionalidad: string = "";
   Npagina: number = 1;
   club: string ="";
@@ -38,11 +39,28 @@ export class BuscarComponent{
       }
      })
   }
+
+  
   descargar(){
-    this.apiservice.get('http://localhost:8000/imprimir?filtros[long_name]' + this.nombre +'&filtros[nationality_name]=' + this.nacionalidad + '&filtros[club_name]=' + this.club + '&filtros[fifa_version]=' + this.Nversion).subscribe({
-      error:()=>console.log('Error'),
-      next:(response)=>{
-        this.jugadores=response;
+    this.apiservice.download('http://localhost:8000/imprimir?filtros[long_name]=' + this.nombre +'&filtros[nationality_name]=' + this.nacionalidad + '&filtros[club_name]=' + this.club + '&filtros[fifa_version]=' + this.Nversion).subscribe({
+      error:(e)=>console.log(e),
+      next:(input:any)=>{
+        const headers = Object.keys(input.data[0]).toString();
+        const main = input.data.map((item: any) => {
+          return Object.values(item).toString();
+        });
+        const csv = [headers, ...main].join('\n');
+
+        const blob = new Blob([csv], {type: 'application/csv'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.download = 'jugadores.csv';
+        a.href = url;
+        a.style.display = 'none';
+        document.body.appendChild(a)
+        a.click()
+        a.remove()
+        URL.revokeObjectURL(url)
       }
     })
   }
