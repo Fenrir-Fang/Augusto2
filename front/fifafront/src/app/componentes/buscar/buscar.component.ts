@@ -42,16 +42,13 @@ export class BuscarComponent{
 
   
   descargar(){
-    this.apiservice.download('http://localhost:8000/imprimir?filtros[long_name]=' + this.nombre +'&filtros[nationality_name]=' + this.nacionalidad + '&filtros[club_name]=' + this.club + '&filtros[fifa_version]=' + this.Nversion).subscribe({
+    this.apiservice.download('http://localhost:8000/imprimir?filtros[long_name]=' + this.nombre +'&filtros[nationality_name]=' + this.nacionalidad + '&filtros[club_name]=' + this.club + '&filtros[fifa_version]=' + this.Nversion + '&page='+this.Npagina ).subscribe({
       error:(e)=>console.log(e),
       next:(input:any)=>{
-        const headers = Object.keys(input.data[0]).toString();
-        const main = input.data.map((item: any) => {
-          return Object.values(item).toString();
-        });
-        const csv = [headers, ...main].join('\n');
 
-        const blob = new Blob([csv], {type: 'application/csv'});
+
+
+        const blob = new Blob([input.body], {type: 'application/csv'});
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.download = 'jugadores.csv';
